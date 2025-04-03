@@ -10,9 +10,8 @@
     $sql = "INSERT INTO users
             (firstname, lastname, email, password)
             VALUES  ('$fname', '$lname', '$email', '$passw')
-    
-    
     ";
+    
     $ans = pg_query($conn, $sql);
     if($ans){
         echo "User has been created successfully";
