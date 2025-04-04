@@ -18,6 +18,6 @@
     }else{
         echo "conection success!!!";
     }
-    pg_close($conn);
+    //pg_close($conn);
 
 ?>
