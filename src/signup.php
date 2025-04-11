@@ -7,6 +7,8 @@
     $email = $_POST['e_mail'];
     $passw = $_POST['p_assw'];
 
+    $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
+
     $sql_validate_email = "  
         select 
             count (id) as total
@@ -25,12 +27,13 @@
             echo "User already exits !!!";
         }else{$sql = "INSERT INTO users
             (firstname, lastname, email, password)
-            VALUES  ('$fname', '$lname', '$email', '$passw')
+            VALUES  ('$fname', '$lname', '$email', '$hashed_password')
     ";
     
     $ans = pg_query($conn, $sql);
     if($ans){
-        echo "User has been created successfully";
+        //echo "User has been created successfully";
+        
     }else{
         echo "Error";
     }
